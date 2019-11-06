@@ -1,5 +1,5 @@
-package Pages;
+package pages;
 
 public class TestPage {
-    
+
 }
