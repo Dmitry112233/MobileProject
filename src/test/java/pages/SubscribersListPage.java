@@ -17,8 +17,7 @@ public class SubscribersListPage {
 
     private AndroidDriver driver;
     private By field_Search = By.id("com.instagram.android:id/row_search_edit_text");
-    private By subscribers_Names = By.xpath("//android.widget.LinearLayout/android.widget.LinearLayout/" +
-            "android.widget.LinearLayout/android.widget.TextView[1]");
+    private By subscribers_Names = By.xpath("//*[@resource-id='com.instagram.android:id/follow_list_username']");
     private By text_Recommendations = By.id("com.instagram.android:id/row_header_textview");
 
     public SubscribersListPage(AndroidDriver driver) {

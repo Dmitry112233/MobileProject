@@ -35,7 +35,6 @@ public class SubscribersSteps {
 
                 savedUsers.addUsers(allUsers);
 
-                log.info(String.format("%s users are added to list", allUsers.size()));
                 log.info("Current size of parsed users is: " + savedUsers.getUser().size());
 
                 appAction.scrollDown(x, y, xEnd, yEnd);
