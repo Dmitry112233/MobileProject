@@ -14,11 +14,12 @@ import java.io.File;
 @Log4j
 public final class AppiumUtils {
 
-    public static AppiumDriverLocalService startAppiumDriverService() {
-        final String url = PropertyManager.getInstance().get("appium.server.url");
-        final int appiumServerPort = IOUtils.nextFreePort();
+    public static AppiumDriverLocalService startAppiumDriverService(String configName) {
+        final String url = new PropertyManager().getProp("appium.server.url");
+        //final int appiumServerPort = IOUtils.nextFreePort();
+        final int appiumServerPort = 4444;
         final int bootstrapPortNumber = IOUtils.nextFreePort();
-        final String appiumJsRunner = PropertyManager.getInstance().get("appium.server.js.path");
+        final String appiumJsRunner = new PropertyManager().getProp("appium.server.js.path");
         log.debug(String.format("Starting Appium server at %s, port %s, bootstrap port %s using runner location: %s", url, appiumServerPort, bootstrapPortNumber,
                 appiumJsRunner));
 
@@ -27,6 +28,7 @@ public final class AppiumUtils {
                         .usingPort(appiumServerPort)
                         .withIPAddress(url)
                         .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                        //.withArgument(GeneralServerFlag.CONFIGURATION_FILE,  "D:\\SeleniumGrid\\" + configName)
                         .withArgument(GeneralServerFlag.LOG_LEVEL, "warn")
                         .withArgument(AndroidServerFlag.BOOTSTRAP_PORT_NUMBER, String.valueOf(bootstrapPortNumber))
                         .withAppiumJS(new File(appiumJsRunner)));

@@ -17,7 +17,7 @@ public class BottomMenuModal {
     }
 
     public SearchPage clickBtnSearch() {
-        new WebDriverWait(driver, 10)
+        new WebDriverWait(driver, 20)
                 .until(ExpectedConditions.presenceOfElementLocated(btn_Search));
         driver.findElement(btn_Search).click();
         return new SearchPage(driver);

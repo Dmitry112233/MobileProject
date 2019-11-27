@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 @Log4j
-public final class PropertyManager {
+public class PropertyManager {
 
     private static PropertyManager instance;
     private static final Object lock = new Object();
@@ -27,9 +27,8 @@ public final class PropertyManager {
         return instance;
     }
 
-    private void loadData() {
+    public void loadData() {
         prop = new Properties();
-
         try {
             prop.load(new FileInputStream(propertyFilePath));
         } catch (IOException e) {
@@ -37,12 +36,12 @@ public final class PropertyManager {
         }
     }
 
-    public String get(String propertyName){
+    public String getProp(String propertyName){
         log.debug(String.format("Getting property by name %s. Value: %s", propertyName, prop.getProperty(propertyName)));
         return prop.getProperty(propertyName);
     }
 
-    private PropertyManager(){
+    public PropertyManager(){
 
     }
 }

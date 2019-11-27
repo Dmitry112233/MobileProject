@@ -9,7 +9,8 @@ public class BatRunner {
 
     public void runBat(String batName){
         try {
-            Process p =Runtime.getRuntime().exec("cmd /C start \"start YO\" \"C:\\Users\\Dmitry\\Desktop\\" + batName + "\"");
+            String batPath = PropertyManager.getInstance().getProp("file.path.bats");
+            Process p =Runtime.getRuntime().exec(String.format("cmd /C start \"start bat\" \"%s" + batName + "\"", batPath));
             p.waitFor();
         } catch (IOException e) {
             log.debug("Exception after trying to run bat file: " + batName);
