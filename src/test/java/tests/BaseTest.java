@@ -33,6 +33,8 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"deviceName", "platformVersion", "systemPort"})
     public void init(String deviceName, String platformVersion, String systemPort) {
+
+        //asdasdasd
         try {
             this.username = PropertyManager.getInstance().getProp("user.name");
             this.password = PropertyManager.getInstance().getProp("user.password");
