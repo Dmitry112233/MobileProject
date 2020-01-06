@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.HashSet;
 
 @Data
@@ -17,6 +18,14 @@ public class Users {
     @JacksonXmlElementWrapper(localName = "user", useWrapping = false)
     HashSet<User> user;
 
+    public HashSet<User> getUser() {
+        return user;
+    }
+
+    public void setUser(HashSet<User> user) {
+        this.user = user;
+    }
+
     public Users() {
         this.user = new HashSet<>();
     }
@@ -25,10 +34,10 @@ public class Users {
         this.user = users;
     }
 
-    public void addUsers(HashSet<String> userNames) {
+    public void addUsers(HashSet<String> userNames, Date date) {
         HashSet<User> users = new HashSet<>();
         for (String name : userNames) {
-            users.add(new User(name));
+            users.add(new User(name, date));
         }
         this.user.addAll(users);
     }

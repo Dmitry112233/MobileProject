@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Android-Test-Suite" thread-count="1">
+
+    <!--Settings-->
+   <test name="Test-My">
+        <parameter name="deviceName" value="9634979d9805" />
+        <parameter name="platformVersion" value="9.0" />
+        <parameter name="systemPort" value="8200" />
+        <classes>
+            <class name="tests.mobile.ParseUsersTest" />
+        </classes>
+    </test>
+</suite>
